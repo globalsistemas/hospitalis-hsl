@@ -1,0 +1,50 @@
+body {
+	background-image: url('../img/fundo.jpg');
+	background-size: cover;
+	color: white;
+}
+
+
+.rodape {
+	background-color: rgba(33, 33, 33, 0.7);
+  	color: #fff;
+  	text-align: center;
+  	padding: 5px 0;
+  	position: fixed;
+  	bottom: 0;
+  	width: 100%;
+}
+
+.texto-rodape {
+    display: flex;
+    align-items: center; /* Alinha verticalmente */
+    justify-content: center; /* Alinha horizontalmente */
+}
+
+.card {
+	background: rgba(0, 0, 0, 0.5);
+	border-radius: 22px;
+	padding: 2rem;
+	box-shadow: 0 20px 60px rgba(0, 0, 0, .35);
+	backdrop-filter: blur(7px);
+    color: #fff;
+}
+
+.navbar {
+    background-color: rgba(33, 33, 33, 0.7);
+}
+
+.navbar-brand {
+    font-weight: 500;
+    color: #009970;
+    font-size: 24px;
+    transition: 0.3s color;
+}
+
+.navbar-brand:hover {
+    color: #00b383;
+}
+
+.navbar-brand:focus {
+    color: #009970;
+}
