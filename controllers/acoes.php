@@ -28,11 +28,11 @@
         mysqli_query($conexao, $sql);
 
         if (mysqli_affected_rows($conexao) > 0) {
-            $_SESSION['mensagem'] = 'USUÁRIO CADASTRADO COM SUCESSO!';     
+            $_SESSION['mensagem'] = 'COLABORADOR CADASTRADO COM SUCESSO!';     
             header('Location: ../pages/colaboradores.php');
             exit;
         } else {
-            $_SESSION['mensagem'] = 'USUÁRIO NÃO CADASTRADO.';
+            $_SESSION['mensagem'] = 'COLABORADOR NÃO CADASTRADO.';
             header('Location: ../pages/colaboradores.php');
             exit;
         }
@@ -63,11 +63,11 @@
         mysqli_query($conexao, $sql);
 
         if (mysqli_affected_rows($conexao) > 0) {
-            $_SESSION['mensagem'] = 'USUÁRIO EDITADO COM SUCESSO!';     
+            $_SESSION['mensagem'] = 'COLABORADOR EDITADO COM SUCESSO!';     
             header('Location: ../pages/colaboradores.php');
             exit;
         } else {
-            $_SESSION['mensagem'] = 'USUÁRIO NÃO EDITADO.';
+            $_SESSION['mensagem'] = 'COLABORADOR NÃO EDITADO.';
             header('Location: ../pages/colaboradores.php');
             exit;
         }

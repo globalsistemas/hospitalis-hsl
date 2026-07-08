@@ -17,7 +17,6 @@
                         <a href="../pages/criar-colaboradores.php" class="btn btn-primary float-end">Adicionar Novo</a>
                     </h4>
                 </div>
-                <?php require_once ("../pages/mensagem.php"); ?>
                 <div class="card-body">
                     <table class="table table-dark table-striped mt-3">
                         <?php require_once ("../pages/mensagem.php"); ?>

@@ -31,6 +31,7 @@
 
                     <form action="<?= $caminho . '../controllers/acoes-usuarios.php' ?>" method="POST">
                         <input type="hidden" name="idusu" value="<?= ($usuario['idusu']); ?>">
+                        <input type="hidden" name="idcol" value="<?= ($usuario['idcol']); ?>">
                         <div class="row"> <!--Linha Nome-->
                             <div class="col-md-7">
                                 <div class="input-group mb-3">
@@ -82,7 +83,7 @@
                             </div>
                         </div>
                         <div class="mb-3">
-                            <button type="submit" name="criar_usuario" class="btn btn-success float-end">
+                            <button type="submit" name="editar_usuario" class="btn btn-success float-end">
                                 Salvar
                             </button>
                         </div>

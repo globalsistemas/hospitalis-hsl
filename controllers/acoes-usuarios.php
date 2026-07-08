@@ -3,6 +3,7 @@
     session_start();
     require_once("../DAO/conexao.php");
 
+    //CRIAR USUÁRIO
     if (isset($_POST['criar_usuario'])) {
         $nomeusu = mysqli_real_escape_string($conexao, trim($_POST['login']));
         $senhausu = mysqli_real_escape_string($conexao, trim($_POST['senha']));
@@ -19,6 +20,30 @@
             exit;
         } else {
             $_SESSION['mensagem'] = 'USUÁRIO NÃO CADASTRADO.';
+            header('Location: ../pages/usuarios');
+            exit;
+        }
+    }
+
+    //EDITAR USUÁRIO
+    if (isset($_POST['editar_usuario'])) {
+        $idusu = mysqli_real_escape_string($conexao, $_POST['idusu']);
+
+        $nomeusu = mysqli_real_escape_string($conexao, trim($_POST['login']));
+        $senhausu = mysqli_real_escape_string($conexao, trim($_POST['senha']));
+        $idcol = mysqli_real_escape_string($conexao, trim($_POST['idcol']));
+        $datcadastrocol = mysqli_real_escape_string($conexao, trim($_POST['data_cadastro']));
+
+        $sql = "UPDATE usuarios SET nomeusu = '$nomeusu', senhausu = '$senhausu', idcol = '$idcol', datcadastrousu = '$datcadastrocol' WHERE idusu = $idusu";
+        
+        mysqli_query($conexao, $sql);
+
+        if (mysqli_affected_rows($conexao) > 0) {
+            $_SESSION['mensagem'] = 'USUÁRIO EDITADO COM SUCESSO!';     
+            header('Location: ../pages/usuarios');
+            exit;
+        } else {
+            $_SESSION['mensagem'] = 'USUÁRIO NÃO EDITADO.';
             header('Location: ../pages/usuarios');
             exit;
         }
