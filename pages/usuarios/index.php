@@ -1,11 +1,11 @@
-<?php
-    $title = "COLABORADORES";
-    $caminho = "";
+
+<?php 
+    $title = "USUÁRIOS";
     $csspeculiar = "";
-    require_once("../components/header.php");
-    require_once("../components/nav.php");
-    session_start();
-    require_once("../DAO/conexao.php");
+    $caminho = "../";
+    require_once ("../../components/header.php");
+    require_once ("../../components/nav.php");
+    require_once("../../DAO/conexao.php");
 ?>
 
 <div class="container mt-5">
@@ -13,36 +13,35 @@
         <div class="col-md-12">
             <div class="card listagens">
                 <div class="card-header">
-                    <h4>Lista de Colaboradores
-                        <a href="../pages/criar-colaboradores.php" class="btn btn-primary float-end">Adicionar Novo</a>
+                    <h4>Lista de Usuários
+                        <a href="../../pages/usuarios/criar-usuarios.php" class="btn btn-primary float-end">Adicionar Novo</a>
                     </h4>
                 </div>
-                <?php require_once ("../pages/mensagem.php"); ?>
+                <?php require_once ("../../pages/mensagem.php"); ?>
                 <div class="card-body">
                     <table class="table table-dark table-striped mt-3">
-                        <?php require_once ("../pages/mensagem.php"); ?>
+                        <?php require_once ("../../pages/mensagem.php"); ?>
                         <thead>
                             <tr>
                                 <th scope="col">Código</th>
                                 <th scope="col">Nome</th>
-                                <th scope="col">E-Mail</th>
-                                <th scope="col" class="w-25">Ações</th>
+                                <th scope="col">Login</th>
+                                <th scope="col" >Ações</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php 
-                                $sql = 'SELECT * FROM colaboradores';
-                                $colaboradores = mysqli_query($conexao, $sql);
-                                if (mysqli_num_rows($colaboradores) > 0) {
-                                    foreach ($colaboradores as $colaborador) {         
+                                $sql = 'SELECT usuarios.*, col.idcol, col.nomecol FROM usuarios INNER JOIN colaboradores AS col ON usuarios.idcol = col.idcol;';
+                                $usuarios = mysqli_query($conexao, $sql);
+                                if (mysqli_num_rows($usuarios) > 0) {
+                                    foreach ($usuarios as $usuario) {         
                             ?>
                             <tr>
-                                <th scope="row"><?= $colaborador['idcol'] ?></th>
-                                <td class="text-uppercase"><?= $colaborador['nomecol'] ?></td>
-                                <td><?= $colaborador['emailcol'] ?></td>
+                                <th scope="row"><?= $usuario['idusu'] ?></th>
+                                <td class="text-uppercase"><?= $usuario['nomecol'] ?></td>
+                                <td><?= $usuario['nomeusu'] ?></td>
                                 <td>
-                                    <a href="../pages/ver-colaboradores.php?idcol=<?= $colaborador['idcol'] ?>" class="btn btn-secondary btn-sm" title="Visualizar"><span class="bi-eye-fill"></span></a>  
-                                    <a href="../pages/editar-colaboradores.php?idcol=<?= $colaborador['idcol'] ?>" class="btn btn-success btn-sm" title="Editar"><span class="bi-pencil-fill"></span></a>
+                                    <a href="<?= $caminho . '../pages/usuarios/editar-usuarios.php?idusu=' . $usuario["idusu"];  ?>" class="btn btn-success btn-sm" title="Editar"><span class="bi-pencil-fill"></span></a>
                                     <form action="../controllers/acoes.php" method="POST" class="d-inline">
                                         <button title="Excluir" onclick="return confirm('Tem certeza que deseja excluir?')" type="submit" name="deletar_colaborador" value="<?= $colaborador['idcol'] ?>" class="btn btn-danger btn-sm">
                                             <span class="bi-trash3-fill"></span>
@@ -65,5 +64,5 @@
 </div>
 
 <?php
-    require_once("../components/footer.php");
+    require_once($caminho . "../components/footer.php");
 ?>

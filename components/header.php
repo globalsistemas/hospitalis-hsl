@@ -5,13 +5,13 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title><?php echo $title; ?> - Hospitalis - Global 2027</title>
     <!--Icones do sistema-->
-    <link rel="stylesheet" href="../assets/icon/bootstrap/bootstrap-icons.min.css">
-    <link rel="icon" href="../assets/icon/iconePrincipalHsl.ico" type="image/ico">
+    <link rel="stylesheet" href="<?= $caminho . '../assets/icon/bootstrap/bootstrap-icons.min.css'; ?> ">
+    <link rel="icon" href="<?= $caminho . '../assets/icon/iconePrincipalHsl.ico" type="image/ico'; ?>">
     <!-- Link to Local Bootstrap CSS -->
-    <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="../assets/css/global.css">
-    <link rel="stylesheet" type="text/css" href="../assets/css/principal.css">
-    <link rel="stylesheet" type="text/css" href="../assets/css/login.css">
-    <link rel="stylesheet" type="text/css" href="../assets/css/colaborador.css">
+    <link rel="stylesheet" type="text/css" href="<?= $caminho . '../assets/css/bootstrap/bootstrap.min.css' ?>">
+    <link rel="stylesheet" type="text/css" href="<?= $caminho . '../assets/css/global.css'; ?>">
+    <link rel="stylesheet" type="text/css" href="<?= $caminho . '../assets/css/principal.css'; ?>">   
+    <link rel="stylesheet" type="text/css" href="<?= $caminho . $csspeculiar; ?>">
 </head>
 <body>
+    

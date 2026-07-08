@@ -92,4 +92,12 @@
         }
     }
     
+    if (isset($_POST['pesquisar_colaborador'])) {
+        
+
+        $pesquisar = ($_GET['pesquisarcol']);
+
+        
+        var_dump($pesquisar);
+    }
 ?>

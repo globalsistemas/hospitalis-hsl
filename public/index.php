@@ -1,5 +1,6 @@
 <?php
     $title = "HOME";
+    $caminho = "";
     require_once("../components/header.php");
     //$statusMenu = "disabled";
     require_once("../components/nav.php");

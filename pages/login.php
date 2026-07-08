@@ -1,5 +1,6 @@
 <?php
     $title = "LOGIN";
+    $caminho = "";
     require_once("../components/header.php");
 ?>
 

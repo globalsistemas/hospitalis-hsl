@@ -4,7 +4,7 @@
 
     define('HOST', 'localhost');
     define('USER', 'root');
-    define('PASS', 'root');
+    define('PASS', '');
     define('DB', 'hsl');
     $conexao = mysqli_connect(HOST, USER, PASS, DB) or die ('NÃO FOI POSSÍVEL CONECTAR AO BANCO');
 ?>

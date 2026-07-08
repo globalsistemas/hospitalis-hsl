@@ -2,6 +2,7 @@
     session_start();
     require_once("../DAO/conexao.php");
     $title = "EDITAR/COLABORADORES";
+    $csspeculiar = "../assets/css/login.css";
     require_once("../components/header.php");
 ?>
 
