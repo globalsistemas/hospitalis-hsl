@@ -48,4 +48,23 @@
             exit;
         }
     }
+
+    if (isset($_POST['deletar_usuario'])) {
+        $idusu = mysqli_real_escape_string($conexao, $_POST['deletar_usuario']);
+        
+        $sql = "DELETE FROM usuarios WHERE idusu = $idusu";
+
+        mysqli_query($conexao, $sql);
+
+        if (mysqli_affected_rows($conexao) > 0) {
+            $_SESSION['mensagem'] = "USUÁRIO DELETADO COM SUCESSO!";
+            header('Location: ../pages/usuarios');
+            exit;
+        } else {
+            $_SESSION['mensagem'] = "USUÁRIO NÃO DELETADO.";
+            header('Location: ../pages/usuarios');
+            exit;
+
+        }
+    }
 ?>

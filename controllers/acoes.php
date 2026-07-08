@@ -81,11 +81,11 @@
         mysqli_query($conexao, $sql);
 
         if (mysqli_affected_rows($conexao) > 0) {
-            $_SESSION['message'] = "USUÁRIO DELETADO COM SUCESSO!";
+            $_SESSION['message'] = "COLABORADOR DELETADO COM SUCESSO!";
             header('Location: ../pages/colaboradores.php');
             exit;
         } else {
-            $_SESSION['message'] = "USUÁRIO NÃO DELETADO.";
+            $_SESSION['message'] = "COLABORADOR NÃO DELETADO.";
             header('Location: ../pages/colaboradores.php');
             exit;
 
@@ -97,7 +97,5 @@
 
         $pesquisar = ($_GET['pesquisarcol']);
 
-        
-        var_dump($pesquisar);
     }
 ?>
