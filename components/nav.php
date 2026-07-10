@@ -1,4 +1,16 @@
-<!--NavBar-->
+
+<?php
+    if (!isset($_SESSION)) {
+        session_start();
+    }
+    //HABILITA OU DESABILITA MENU SE ESTIVER LOGADO.
+    if (isset($_SESSION['nomecol'])) {
+        $statusMenu = "";
+    } else {
+        $statusMenu = "Disabled";
+    }
+?>
+
 <!--NavBar-->
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
@@ -23,11 +35,22 @@
                         <li class="nav-item">
                             <a class="nav-link mx-lg-2" href="#">Portfolio</a>
                         </li>-->
-                        <li class="nav-item">
-                            <a class="nav-link mx-lg-2" href="#">Contatos</a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" <?php echo $statusMenu; ?>>
+                                Equipamentos
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-dark">
+                                <li><a class="dropdown-item" href="<?= $caminho . '../pages/computadores'; ?>">Computadores</a></li>
+                                <li><a class="dropdown-item" href="<?= $caminho . '../pages/computadores'; ?>">Monitores</a></li>
+
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="<?= $caminho . '../pages/computadores'; ?>">Manutenção</a></li>
+                            </ul>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle <?= $statusMenu ?>" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" <?php echo $statusMenu; ?>>
                                 Cadastros
                             </a>
                             <ul class="dropdown-menu dropdown-menu-dark">
@@ -43,10 +66,39 @@
                     </ul>
                 </div>
             </div>
-            <a href="../pages/login.php" class="login-button">Login</a>
+            <?php
+                
+                // Verifique se o usuário está logado
+                if (isset($_SESSION['nomecol'])) { 
+            ?>
+                <!-- Exibe o nome do usuário e o botão de sair -->
+                <div class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <span class="text-uppercase">Olá, <?php echo htmlspecialchars($_SESSION['nomecol']); ?></span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark">
+                        <li><a class="dropdown-item" href="#">Trocar senha</a></li>
+                        <li><a class="dropdown-item" href="#">Meus dados</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a href="../../pages/login/logout.php" class="dropdown-item logout-button">Sair</a></li>
+                    </ul>
+                </div>
+            <?php 
+                } else { 
+            ?>
+                    <!-- Exibe o botão de login padrão -->
+                    <a href="../pages/login" class="login-button">Login</a>
+            <?php 
+                } 
+            ?>
+            
             <button class="navbar-toggler pe-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
                 aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
         </div>
     </nav>
+
+

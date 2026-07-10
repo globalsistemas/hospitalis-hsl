@@ -1,12 +1,19 @@
 
 <?php 
+    if (!isset($_SESSION['idusu'])) {
+        header('Location: ../../pages/login');
+        exit;
+    }
+
     $title = "USUÁRIOS";
     $csspeculiar = "";
     $caminho = "../";
     require_once ("../../components/header.php");
     require_once ("../../components/nav.php");
     require_once("../../DAO/conexao.php");
-    session_start();
+    if (!isset($_SESSION)) {
+        session_start();
+    }
 ?>
 
 <div class="container mt-5">

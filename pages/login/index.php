@@ -34,7 +34,7 @@
                 </div>
                 <button type="submit" name="logar-usuario" class="btn btn-light w-100 text-dark fw-semibold">Entrar</button>
                 <p class="paragrafo text-end mt-2">
-                    <a href="../public/index.php" class="text-white fw-semibold text-decoration-none ms-4">Sair</a>
+                    <a href="../../public" class="text-white fw-semibold text-decoration-none ms-4">Sair</a>
                 </p>
             </form>
         </div>
