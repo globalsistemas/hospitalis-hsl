@@ -58,10 +58,12 @@
 
         if (mysqli_affected_rows($conexao) > 0) {
             $_SESSION['mensagem'] = "USUÁRIO DELETADO COM SUCESSO!";
+            $_SESSION['tipoalert'] = "alert-success";
             header('Location: ../pages/usuarios');
             exit;
         } else {
             $_SESSION['mensagem'] = "USUÁRIO NÃO DELETADO.";
+            $_SESSION['tipoalert'] = "alert-danger";
             header('Location: ../pages/usuarios');
             exit;
 

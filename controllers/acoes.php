@@ -81,11 +81,13 @@
         mysqli_query($conexao, $sql);
 
         if (mysqli_affected_rows($conexao) > 0) {
-            $_SESSION['message'] = "COLABORADOR DELETADO COM SUCESSO!";
+            $_SESSION['mensagem'] = "COLABORADOR DELETADO COM SUCESSO!";
+            $_SESSION['tipoalert'] = "alert-success";
             header('Location: ../pages/colaboradores.php');
             exit;
         } else {
-            $_SESSION['message'] = "COLABORADOR NÃO DELETADO.";
+            $_SESSION['mensagem'] = "COLABORADOR NÃO DELETADO.";
+            $_SESSION['tipoalert'] = "alert-danger";
             header('Location: ../pages/colaboradores.php');
             exit;
 
