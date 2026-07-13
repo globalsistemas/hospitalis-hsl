@@ -51,4 +51,26 @@
             exit;
         }
     }
+
+    //EXCLUIR SETOR
+    if (isset($_POST['deletar_setor'])) {
+        $idset = mysqli_real_escape_string($conexao, $_POST['deletar_setor']);
+        
+        $sql = "DELETE FROM setores WHERE idset = $idset";
+
+        mysqli_query($conexao, $sql);
+
+        if (mysqli_affected_rows($conexao) > 0) {
+            $_SESSION['mensagem'] = "SETOR DELETADO COM SUCESSO!";
+            $_SESSION['tipoalert'] = "alert-success";
+            header('Location: ../pages/setores');
+            exit;
+        } else {
+            $_SESSION['mensagem'] = "SETOR NÃO DELETADO.";
+            $_SESSION['tipoalert'] = "alert-danger";
+            header('Location: ../pages/setores');
+            exit;
+
+        }
+    }
 ?>

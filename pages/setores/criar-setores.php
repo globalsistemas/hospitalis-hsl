@@ -4,10 +4,10 @@
         session_start();
     }
 
-    /**if (!isset($_SESSION['nomecol'])) {
+    if (!isset($_SESSION['nomecol'])) {
        header('Location: ../../pages/login');
        exit;
-    }**/
+    }
     
     $title = "SETORES";
     $csspeculiar = "";
@@ -56,7 +56,6 @@
         </div>
     </div>
 </div>
-
 
 <?php
     require_once($caminho . "../components/footer.php");

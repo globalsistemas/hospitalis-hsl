@@ -1,12 +1,13 @@
+
 <?php 
     if (!isset($_SESSION)) {
         session_start();
     }
 
-    /**if (!isset($_SESSION['nomecol'])) {
+    if (!isset($_SESSION['nomecol'])) {
        header('Location: ../../pages/login');
        exit;
-    }**/
+    }
     
     $title = "SETORES";
     $csspeculiar = "";
@@ -15,7 +16,6 @@
     require_once ("../../components/nav.php");
     require_once("../../DAO/conexao.php");
 ?>
-
 
 <div class="container mt-5">
     <div class="row">
@@ -53,7 +53,8 @@
                                     <a href="<?= $caminho . '../pages/setores/editar-setores.php?idset=' . $setor["idset"];  ?>" class="btn btn-success btn-sm" title="Editar">
                                         <span class="bi-pencil-fill"></span></a>
                                     <form action="<?= $caminho . '../controllers/acoes-setores.php' ?>" method="POST" class="d-inline">
-                                        <button title="Excluir" onclick="return confirm('Tem certeza que deseja excluir?')" type="submit" name="deletar_setor" value="<?= $setor['idset'] ?>" class="btn btn-danger btn-sm">
+                                        <button title="Excluir" onclick="return confirm('Tem certeza que deseja excluir?')" type="submit" name="deletar_setor" 
+                                        value="<?= $setor['idset'] ?>" class="btn btn-danger btn-sm">
                                             <span class="bi-trash3-fill"></span>
                                         </button>
                                     </form>
