@@ -9,7 +9,7 @@
        exit;
     }
     
-    $title = "SETORES";
+    $title = "gabinetes";
     $csspeculiar = "";
     $caminho = "../";
     require_once ("../../components/header.php");
@@ -22,8 +22,8 @@
         <div class="col-md-12">
             <div class="card listagens">
                 <div class="card-header">
-                    <h4>Lista de Setores
-                        <a href="../../pages/setores/criar-setores.php" class="btn btn-primary float-end">Adicionar Novo</a>
+                    <h4>Lista de Computadores (Gabinetes)
+                        <a href="../../pages/gabinetes/criar-gabinetes.php" class="btn btn-primary float-end">Adicionar Novo</a>
                     </h4>
                 </div>
                 <?php require_once ("../../pages/mensagem.php"); ?>
@@ -33,28 +33,30 @@
                         <thead>
                             <tr>
                                 <th scope="col">Código</th>
-                                <th scope="col">Descrição</th>
+                                <th scope="col">Marca</th>
+                                <th scope="col">Processador</th>
                                 <th scope="col" >Ações</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php 
-                                $sql = 'SELECT * FROM setores ORDER BY descricaoset';
-                                $setores = mysqli_query($conexao, $sql);
-                                if (mysqli_num_rows($setores) > 0) {
-                                    foreach ($setores as $setor) {         
+                                $sql = 'SELECT * FROM gabinetes ORDER BY marcagab';
+                                $gabinetes = mysqli_query($conexao, $sql);
+                                if (mysqli_num_rows($gabinetes) > 0) {
+                                    foreach ($gabinetes as $gabinete) {         
                             ?>
                             <tr>
-                                <th scope="row"><?= $setor['idset'] ?></th>
-                                <td class="text-uppercase"><?= $setor['descricaoset'] ?></td>
+                                <th scope="row"><?= $gabinete['idgab'] ?></th>
+                                <td class="text-uppercase"><?= $gabinete['marcagab'] ?></td>
+                                <td class="text-uppercase"><?= $gabinete['processadorgab'] ?></td>
                                 <td class="w-25">
-                                    <a href="<?= $caminho . '../pages/setores/ver-setores.php?idset=' . $setor["idset"];  ?>" class="btn btn-secondary btn-sm" title="Visualizar">
+                                    <a href="<?= $caminho . '../pages/gabinetes/ver-gabinetes.php?idset=' . $gabinete["idgab"];  ?>" class="btn btn-secondary btn-sm" title="Visualizar">
                                         <span class="bi-eye-fill"></span></a>
-                                    <a href="<?= $caminho . '../pages/setores/editar-setores.php?idset=' . $setor["idset"];  ?>" class="btn btn-success btn-sm" title="Editar">
+                                    <a href="<?= $caminho . '../pages/gabinetes/editar-gabinetes.php?idset=' . $gabinete["idgab"];  ?>" class="btn btn-success btn-sm" title="Editar">
                                         <span class="bi-pencil-fill"></span></a>
-                                    <form action="<?= $caminho . '../controllers/acoes-setores.php' ?>" method="POST" class="d-inline">
-                                        <button title="Excluir" onclick="return confirm('Tem certeza que deseja excluir?')" type="submit" name="deletar_setor" 
-                                        value="<?= $setor['idset'] ?>" class="btn btn-danger btn-sm">
+                                    <form action="<?= $caminho . '../controllers/acoes-gabinetes.php' ?>" method="POST" class="d-inline">
+                                        <button title="Excluir" onclick="return confirm('Tem certeza que deseja excluir?')" type="submit" name="deletar_gabinete" 
+                                        value="<?= $gabinete['idgab'] ?>" class="btn btn-danger btn-sm">
                                             <span class="bi-trash3-fill"></span>
                                         </button>
                                     </form>
@@ -63,7 +65,7 @@
                             <?php
                                     } // FOREACH
                                 } else {
-                                    echo '<h5>NENHUM SETOR ENCONTRADO!</h5>';
+                                    echo '<h5>NENHUM GABINETE ENCONTRADO!</h5>';
                                 }
                             ?> 
                         </tbody>

@@ -54,7 +54,6 @@
     visibility: visible;
 }
 
-
 .hero-section::before {
     background-color: rgba(0, 0, 0, 0.6);
     content: "";

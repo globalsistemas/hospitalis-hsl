@@ -1,11 +1,19 @@
 <?php
+    if (!isset($_SESSION)) {
+        session_start();
+    }
+
+    if (!isset($_SESSION['nomecol'])) {
+       header('Location: ../../pages/login');
+       exit;
+    }
+
     $title = "COLABORADORES";
-    $caminho = "";
+    $caminho = "../";
     $csspeculiar = "";
-    require_once("../components/header.php");
-    require_once("../components/nav.php");
-    session_start();
-    require_once("../DAO/conexao.php");
+    require_once($caminho . "../components/header.php");
+    require_once($caminho . "../components/nav.php");
+    require_once($caminho . "../DAO/conexao.php");
 ?>
 
 <div class="container mt-5">
@@ -14,12 +22,12 @@
             <div class="card listagens">
                 <div class="card-header">
                     <h4>Lista de Colaboradores
-                        <a href="../pages/criar-colaboradores.php" class="btn btn-primary float-end">Adicionar Novo</a>
+                        <a href="<?= $caminho . '../pages/colaboradores/criar-colaboradores.php'; ?>" class="btn btn-primary float-end">Adicionar Novo</a>
                     </h4>
                 </div>
                 <div class="card-body">
                     <table class="table table-dark table-striped mt-3">
-                        <?php require_once ("../pages/mensagem.php"); ?>
+                        <?php require_once ($caminho . "../components/mensagem.php"); ?>
                         <thead>
                             <tr>
                                 <th scope="col">Código</th>
@@ -40,8 +48,8 @@
                                 <td class="text-uppercase"><?= $colaborador['nomecol'] ?></td>
                                 <td><?= $colaborador['emailcol'] ?></td>
                                 <td>
-                                    <a href="../pages/ver-colaboradores.php?idcol=<?= $colaborador['idcol'] ?>" class="btn btn-secondary btn-sm" title="Visualizar"><span class="bi-eye-fill"></span></a>  
-                                    <a href="../pages/editar-colaboradores.php?idcol=<?= $colaborador['idcol'] ?>" class="btn btn-success btn-sm" title="Editar"><span class="bi-pencil-fill"></span></a>
+                                    <a href="<?= $caminho; ?>../pages/colaboradores/ver-colaboradores.php?idcol=<?= $colaborador['idcol']; ?>" class="btn btn-secondary btn-sm" title="Visualizar"><span class="bi-eye-fill"></span></a>  
+                                    <a href="<?= $caminho; ?>../pages/colaboradores/editar-colaboradores.php?idcol=<?= $colaborador['idcol'] ?>" class="btn btn-success btn-sm" title="Editar"><span class="bi-pencil-fill"></span></a>
                                     <form action="../controllers/acoes.php" method="POST" class="d-inline">
                                         <button title="Excluir" onclick="return confirm('Tem certeza que deseja excluir?')" type="submit" name="deletar_colaborador" value="<?= $colaborador['idcol'] ?>" class="btn btn-danger btn-sm">
                                             <span class="bi-trash3-fill"></span>
@@ -64,5 +72,5 @@
 </div>
 
 <?php
-    require_once("../components/footer.php");
+    require_once($caminho . "../components/footer.php");
 ?>

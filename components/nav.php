@@ -36,27 +36,24 @@
                             <a class="nav-link mx-lg-2" href="#">Portfolio</a>
                         </li>-->
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" <?php echo $statusMenu; ?>>
-                                Equipamentos
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-dark">
-                                <li><a class="dropdown-item" href="<?= $caminho . '../pages/computadores'; ?>">Computadores</a></li>
-                                <li><a class="dropdown-item" href="<?= $caminho . '../pages/computadores'; ?>">Monitores</a></li>
-
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="<?= $caminho . '../pages/computadores'; ?>">Manutenção</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" <?php echo $statusMenu; ?>>
+                            <a class="nav-link dropdown-toggle" data-bs-auto-close="outside" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" <?php echo $statusMenu; ?>>
                                 Cadastros
                             </a>
                             <ul class="dropdown-menu dropdown-menu-dark">
-                                <li><a class="dropdown-item" href="<?= $caminho . '../pages/colaboradores.php'; ?>">Colaboradores</a></li>
-                                <li><a class="dropdown-item" href="<?= $caminho . '../pages/setores'; ?>">Setores</a></li>
-                                <!--<li><a class="dropdown-item" href="#">Cidades</a></li>-->
+                                <li><a class="dropdown-item" href="<?= $caminho . '../pages/colaboradores'; ?>">Colaboradores</a></li>          
+                                <li class="dropend">
+                                    <a class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" href="">Equipamentos</a>
+                                    <ul class="dropdown-menu dropdown-menu-dark">
+                                        <li><a href="#" class="dropdown-item">Computadores Completos</a></li>
+                                        <li><a href="<?= $caminho . '../pages/gabinetes' ?>" class="dropdown-item">Computadores (Gabinetes)</a></li>
+                                        <li><a href="#" class="dropdown-item">Monitores</a></li>
+                                        <li><a href="#" class="dropdown-item">Mouses</a></li>
+                                        <li><a href="#" class="dropdown-item">Notebooks</a></li>
+                                        <li><a href="#" class="dropdown-item">Tablets</a></li>
+                                        <li><a href="#" class="dropdown-item">Teclados</a></li>
+                                    </ul>
+                                </li>
+                                <li><a class="dropdown-item" href="<?= $caminho . '../pages/setores'; ?>">Setores</a></li>        
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>

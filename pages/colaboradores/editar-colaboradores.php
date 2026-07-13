@@ -1,9 +1,18 @@
 <?php
-    session_start();
-    require_once("../DAO/conexao.php");
+    if (!isset($_SESSION)) {
+        session_start();
+    }
+
+    if (!isset($_SESSION['nomecol'])) {
+       header('Location: ../../pages/login');
+       exit;
+    }
+
+    $caminho = "../";
     $title = "EDITAR/COLABORADORES";
-    $csspeculiar = "../assets/css/login.css";
-    require_once("../components/header.php");
+    $csspeculiar = $caminho . "../assets/css/login.css";
+    require_once($caminho . "../DAO/conexao.php");
+    require_once($caminho . "../components/header.php");
 ?>
 
 <div class="container mt-5">
@@ -12,7 +21,7 @@
             <div class="card">
                 <div class="card-header">
                     <h4>Editar Colaborador
-                        <a href="../pages/colaboradores.php" class="btn btn-light float-end">Voltar</a>
+                        <a href="<?= $caminho; ?>../pages/colaboradores" class="btn btn-light float-end">Voltar</a>
                     </h4>
                 </div>
                 <div class="card-body">
@@ -172,5 +181,5 @@
 </div>
 
 <?php
-    require_once("../components/footer.php");
+    require_once($caminho . "../components/footer.php");
 ?>

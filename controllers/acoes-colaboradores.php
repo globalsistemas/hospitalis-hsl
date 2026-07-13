@@ -28,12 +28,14 @@
         mysqli_query($conexao, $sql);
 
         if (mysqli_affected_rows($conexao) > 0) {
-            $_SESSION['mensagem'] = 'COLABORADOR CADASTRADO COM SUCESSO!';     
-            header('Location: ../pages/colaboradores.php');
+            $_SESSION['mensagem'] = 'COLABORADOR CADASTRADO COM SUCESSO!';
+            $_SESSION['tipoalert'] = "alert-success";   
+            header('Location: ../pages/colaboradores');
             exit;
         } else {
             $_SESSION['mensagem'] = 'COLABORADOR NÃO CADASTRADO.';
-            header('Location: ../pages/colaboradores.php');
+            $_SESSION['tipoalert'] = "alert-danger";
+            header('Location: ../pages/colaboradores');
             exit;
         }
     }
@@ -63,12 +65,14 @@
         mysqli_query($conexao, $sql);
 
         if (mysqli_affected_rows($conexao) > 0) {
-            $_SESSION['mensagem'] = 'COLABORADOR EDITADO COM SUCESSO!';     
-            header('Location: ../pages/colaboradores.php');
+            $_SESSION['mensagem'] = 'COLABORADOR EDITADO COM SUCESSO!'; 
+            $_SESSION['tipoalert'] = "alert-success";    
+            header('Location: ../pages/colaboradores');
             exit;
         } else {
             $_SESSION['mensagem'] = 'COLABORADOR NÃO EDITADO.';
-            header('Location: ../pages/colaboradores.php');
+            $_SESSION['tipoalert'] = "alert-danger";
+            header('Location: ../pages/colaboradores');
             exit;
         }
     }
@@ -83,20 +87,18 @@
         if (mysqli_affected_rows($conexao) > 0) {
             $_SESSION['mensagem'] = "COLABORADOR DELETADO COM SUCESSO!";
             $_SESSION['tipoalert'] = "alert-success";
-            header('Location: ../pages/colaboradores.php');
+            header('Location: ../pages/colaboradores');
             exit;
         } else {
             $_SESSION['mensagem'] = "COLABORADOR NÃO DELETADO.";
             $_SESSION['tipoalert'] = "alert-danger";
-            header('Location: ../pages/colaboradores.php');
+            header('Location: ../pages/colaboradores');
             exit;
 
         }
     }
     
     if (isset($_POST['pesquisar_colaborador'])) {
-        
-
         $pesquisar = ($_GET['pesquisarcol']);
 
     }

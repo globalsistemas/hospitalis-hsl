@@ -1,6 +1,7 @@
 <?php
     $title = "COLABORADORES";
-    require_once("../components/header.php");
+    $caminho = "../";
+    require_once($caminho . "../components/header.php");
 ?>
 
 <div class="container mt-5">
@@ -9,11 +10,11 @@
             <div class="card">
                 <div class="card-header">
                     <h4>Adicionar Novo
-                        <a href="../pages/colaboradores.php" class="btn btn-light float-end">Voltar</a>
+                        <a href="<?= $caminho; ?>../pages/colaboradores" class="btn btn-light float-end">Voltar</a>
                     </h4>
                 </div>
                 <div class="card-body">
-                    <form action="../controllers/acoes.php" method="POST">
+                    <form action="../../controllers/acoes-colaboradores.php" method="POST">
                         <div class="row"> <!--Linha Nome-->
                             <div class="col-md-9">
                                 <div class="input-group mb-3">
@@ -153,5 +154,5 @@
 </div>
 
 <?php
-    require_once("../components/footer.php");
+    require_once($caminho . "../components/footer.php");
 ?>

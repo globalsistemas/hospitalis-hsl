@@ -1,8 +1,9 @@
 
 <?php
     $title = "COLABORADORES";
-    require_once("../components/header.php");
-    require_once("../DAO/conexao.php");
+    $caminho = "../";
+    require_once($caminho . "../components/header.php");
+    require_once($caminho . "../DAO/conexao.php");
 ?>
 
 <div class="container mt-5">
@@ -11,7 +12,7 @@
             <div class="card">
                 <div class="card-header">
                     <h4>Adicionar Novo
-                        <a href="../pages/colaboradores.php" class="btn btn-light float-end">Voltar</a>
+                        <a href="<?= $caminho . "../pages/colaboradores"; ?>" class="btn btn-light float-end">Voltar</a>
                     </h4>
                 </div>
                 <div class="card-body">
@@ -136,5 +137,5 @@
 </div>
 
 <?php
-    require_once("../components/footer.php");
+    require_once($caminho . "../components/footer.php");
 ?>
