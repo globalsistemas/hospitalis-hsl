@@ -2,7 +2,7 @@
     $title = "LOGIN";
     $caminho = "../";
     require_once($caminho . "../components/header.php");
-    session_start();
+    //session_start();
 ?>
 
     <?php require_once ("../../pages/mensagem.php"); ?>

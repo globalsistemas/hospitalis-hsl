@@ -55,8 +55,8 @@
                             </a>
                             <ul class="dropdown-menu dropdown-menu-dark">
                                 <li><a class="dropdown-item" href="<?= $caminho . '../pages/colaboradores.php'; ?>">Colaboradores</a></li>
-                                <li><a class="dropdown-item" href="#">Computadores</a></li>
-                                <li><a class="dropdown-item" href="#">Cidades</a></li>
+                                <li><a class="dropdown-item" href="<?= $caminho . '../pages/setores'; ?>">Setores</a></li>
+                                <!--<li><a class="dropdown-item" href="#">Cidades</a></li>-->
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
