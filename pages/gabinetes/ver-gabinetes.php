@@ -59,9 +59,9 @@
                                 <span class="input-group-text">Tipo:</span>
                                 <select class="form-select bg-dark text-white" name="armazenamentogab" aria-label="Armazenamento" text-uppercase 
                                 required disabled>
-                                    <option selected>HDD/SSD</option>
-                                    <option value="HDD">HDD</option>
-                                    <option value="SSD">SSD</option>
+                                    <option <?= ($gabinete['armazenamentogab'] == "") ? 'selected' : '' ?>>HDD/SSD</option>
+                                    <option value="HDD" <?= ($gabinete['armazenamentogab'] == "HDD") ? 'selected' : '' ?>>HDD</option>
+                                    <option value="SSD" <?= ($gabinete['armazenamentogab'] == "SSD") ? 'selected' : '' ?>>SSD</option>
                                 </select>
                             </div>
                         </div>

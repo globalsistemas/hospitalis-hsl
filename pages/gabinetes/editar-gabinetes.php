@@ -10,7 +10,7 @@
        exit;
     }
     
-    $title = "SETORES";
+    $title = "gabineteES";
     $csspeculiar = "";
     $caminho = "../";
     require_once ("../../components/header.php");
@@ -34,35 +34,35 @@
                             $query = mysqli_query($conexao, $sql);
                             
                             if (mysqli_num_rows($query) > 0) {
-                                $setor = mysqli_fetch_array($query);
+                                $gabinete = mysqli_fetch_array($query);
                     ?>
                     <form action="<?= $caminho; ?>../controllers/acoes-gabinetes.php" method="POST">
-                        <input type="hidden" name="idgab" value="<?= ($setor['idgab']); ?>">
+                        <input type="hidden" name="idgab" value="<?= ($gabinete['idgab']); ?>">
                         <div class="input-group mb-3">
                             <span class="input-group-text">Marca</span>
                             <input type="text" name="marcagab" aria-label="Marca" class="form-control text-uppercase" required 
-                            value="<?= ($setor['marcagab']); ?>">
+                            value="<?= ($gabinete['marcagab']); ?>">
                         </div>
                         <div class="input-group mb-3">
                             <span class="input-group-text">Processador</span>
                             <input type="text" name="processadorgab" aria-label="Processador" class="form-control text-uppercase" required 
-                            value="<?= ($setor['processadorgab']); ?>">
+                            value="<?= ($gabinete['processadorgab']); ?>">
                         </div>    
                         <div class="row"> <!--Linha Nome-->
                             <div class="col-md-3">
                                 <div class="input-group mb-3">
                                     <span class="input-group-text">Memória</span>
                                     <input type="text" name="memoriagab" aria-label="Memoria" class="form-control text-uppercase" required
-                                    value="<?= ($setor['memoriagab']); ?>">
+                                    value="<?= ($gabinete['memoriagab']); ?>">
                                 </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="input-group mb-3">
                                     <span class="input-group-text">Tipo:</span>
                                     <select class="form-select bg-dark text-white" name="armazenamentogab" aria-label="Armazenamento" text-uppercase required>
-                                        <option selected>HDD/SSD</option>
-                                        <option value="HDD">HDD</option>
-                                        <option value="SSD">SSD</option>
+                                        <option value="HDD/SSD"<?= ($gabinete['armazenamentogab'] == "") ? 'selected' : '' ?>>HDD/SSD</option>
+                                        <option value="HDD" <?= ($gabinete['armazenamentogab'] == "HDD") ? 'selected' : '' ?>>HDD</option>
+                                        <option value="SSD" <?= ($gabinete['armazenamentogab'] == "SSD") ? 'selected' : '' ?>>SSD</option>
                                     </select>
                                 </div>
                             </div>
@@ -70,19 +70,19 @@
                                 <div class="input-group mb-3">
                                     <span class="input-group-text">Tamanho</span>
                                     <input type="text" name="tamarmazenamentogab" aria-label="Tamanho Armazenamento" class="form-control text-uppercase" required
-                                    value="<?= ($setor['tamarmazenamentogab']); ?>">
+                                    value="<?= ($gabinete['tamarmazenamentogab']); ?>">
                                 </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="input-group mb-3">
                                     <span class="input-group-text">Data Cadastro</span>
-                                    <input type="date" name="datcadastrogab" aria-label="Data Cadastro" class="form-control" value="<?= ($setor['datcadastrogab']); ?>" readonly>
+                                    <input type="date" name="datcadastrogab" aria-label="Data Cadastro" class="form-control" value="<?= ($gabinete['datcadastrogab']); ?>" readonly>
                                 </div>
                             </div>
                         </div>
                         <div class="input-group mb-3">
                             <span class="input-group-text">Observação</span>
-                            <input type="text" name="observacaogab" aria-label="observacao" class="form-control text-uppercase" value="<?= ($setor['observacaogab']); ?>">
+                            <input type="text" name="observacaogab" aria-label="observacao" class="form-control text-uppercase" value="<?= ($gabinete['observacaogab']); ?>">
                         </div>                        
                         <div class="mb-3">
                             <button type="submit" name="editar_gabinetes" class="btn btn-success float-end">

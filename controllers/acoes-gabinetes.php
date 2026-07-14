@@ -61,4 +61,27 @@
             exit;
         }
     }
+
+    //EXCLUIR GABINETE
+    if (isset($_POST['deletar_gabinete'])) {
+        $idgab = mysqli_real_escape_string($conexao, $_POST['deletar_gabinete']);
+        
+        $sql = "DELETE FROM gabinetes WHERE idgab = $idgab";
+
+        mysqli_query($conexao, $sql);
+
+        if (mysqli_affected_rows($conexao) > 0) {
+            $_SESSION['mensagem'] = "GABINETE DELETADO COM SUCESSO!";
+            $_SESSION['tipoalert'] = "alert-success";
+            header('Location: ../pages/setores');
+            exit;
+        } else {
+            $_SESSION['mensagem'] = "GABINETE NÃO DELETADO.";
+            $_SESSION['tipoalert'] = "alert-danger";
+            header('Location: ../pages/setores');
+            exit;
+
+        }
+    }
+
 ?>
