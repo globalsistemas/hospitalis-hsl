@@ -35,7 +35,7 @@
                                 $colaborador = mysqli_fetch_array($query);
                             
                     ?>
-                    <form action="../controllers/acoes.php" method="POST">
+                    <form action="<?= $caminho; ?>../controllers/acoes-colaboradores.php" method="POST">
                         <input type="hidden" name="idcol" value="<?= $colaborador['idcol'] ?>">
                         <div class="row"> <!--Linha Nome-->
                             <div class="col-md-9">

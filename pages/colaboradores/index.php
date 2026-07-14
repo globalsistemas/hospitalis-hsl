@@ -50,7 +50,7 @@
                                 <td>
                                     <a href="<?= $caminho; ?>../pages/colaboradores/ver-colaboradores.php?idcol=<?= $colaborador['idcol']; ?>" class="btn btn-secondary btn-sm" title="Visualizar"><span class="bi-eye-fill"></span></a>  
                                     <a href="<?= $caminho; ?>../pages/colaboradores/editar-colaboradores.php?idcol=<?= $colaborador['idcol'] ?>" class="btn btn-success btn-sm" title="Editar"><span class="bi-pencil-fill"></span></a>
-                                    <form action="../controllers/acoes.php" method="POST" class="d-inline">
+                                    <form action="<?= $caminho; ?>../controllers/acoes-colaboradores.php" method="POST" class="d-inline">
                                         <button title="Excluir" onclick="return confirm('Tem certeza que deseja excluir?')" type="submit" name="deletar_colaborador" value="<?= $colaborador['idcol'] ?>" class="btn btn-danger btn-sm">
                                             <span class="bi-trash3-fill"></span>
                                         </button>

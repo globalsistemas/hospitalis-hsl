@@ -15,11 +15,13 @@
         mysqli_query($conexao, $sql);
 
         if (mysqli_affected_rows($conexao) > 0) {
-            $_SESSION['mensagem'] = 'USUÁRIO CADASTRADO COM SUCESSO!';     
+            $_SESSION['mensagem'] = 'USUÁRIO CADASTRADO COM SUCESSO!'; 
+            $_SESSION['tipoalert'] = "alert-success";    
             header('Location: ../pages/usuarios');
             exit;
         } else {
             $_SESSION['mensagem'] = 'USUÁRIO NÃO CADASTRADO.';
+            $_SESSION['tipoalert'] = "alert-danger";
             header('Location: ../pages/usuarios');
             exit;
         }
@@ -39,11 +41,13 @@
         mysqli_query($conexao, $sql);
 
         if (mysqli_affected_rows($conexao) > 0) {
-            $_SESSION['mensagem'] = 'USUÁRIO EDITADO COM SUCESSO!';     
+            $_SESSION['mensagem'] = 'USUÁRIO EDITADO COM SUCESSO!';
+            $_SESSION['tipoalert'] = "alert-success";     
             header('Location: ../pages/usuarios');
             exit;
         } else {
             $_SESSION['mensagem'] = 'USUÁRIO NÃO EDITADO.';
+            $_SESSION['tipoalert'] = "alert-danger";
             header('Location: ../pages/usuarios');
             exit;
         }

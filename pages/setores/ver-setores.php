@@ -56,7 +56,7 @@
                         value="<?= ($setor['observacaoset']); ?>">
                     </div>                        
                     <div class="mb-3">
-                        <a href="../setores/editar-setor.php?idcol=<?= $setor['idset'] ?>" class="btn btn-success float-end">Editar</a>
+                        <a href="<?= $caminho . '../pages/setores/editar-setores.php?idset=' . $setor["idset"];  ?>" class="btn btn-success float-end">Editar</a>
                     </div>
                     <?php 
                             } else {

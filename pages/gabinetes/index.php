@@ -26,10 +26,9 @@
                         <a href="../../pages/gabinetes/criar-gabinetes.php" class="btn btn-primary float-end">Adicionar Novo</a>
                     </h4>
                 </div>
-                <?php require_once ("../../pages/mensagem.php"); ?>
                 <div class="card-body">
                     <table class="table table-dark table-striped mt-3">
-                        <?php require_once ("../../pages/mensagem.php"); ?>
+                        <?php require_once ($caminho . "../components/mensagem.php"); ?>
                         <thead>
                             <tr>
                                 <th scope="col">Código</th>
@@ -50,9 +49,9 @@
                                 <td class="text-uppercase"><?= $gabinete['marcagab'] ?></td>
                                 <td class="text-uppercase"><?= $gabinete['processadorgab'] ?></td>
                                 <td class="w-25">
-                                    <a href="<?= $caminho . '../pages/gabinetes/ver-gabinetes.php?idset=' . $gabinete["idgab"];  ?>" class="btn btn-secondary btn-sm" title="Visualizar">
+                                    <a href="<?= $caminho . '../pages/gabinetes/ver-gabinetes.php?idgab=' . $gabinete["idgab"];  ?>" class="btn btn-secondary btn-sm" title="Visualizar">
                                         <span class="bi-eye-fill"></span></a>
-                                    <a href="<?= $caminho . '../pages/gabinetes/editar-gabinetes.php?idset=' . $gabinete["idgab"];  ?>" class="btn btn-success btn-sm" title="Editar">
+                                    <a href="<?= $caminho . '../pages/gabinetes/editar-gabinetes.php?idgab=' . $gabinete["idgab"];  ?>" class="btn btn-success btn-sm" title="Editar">
                                         <span class="bi-pencil-fill"></span></a>
                                     <form action="<?= $caminho . '../controllers/acoes-gabinetes.php' ?>" method="POST" class="d-inline">
                                         <button title="Excluir" onclick="return confirm('Tem certeza que deseja excluir?')" type="submit" name="deletar_gabinete" 

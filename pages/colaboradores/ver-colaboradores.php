@@ -123,7 +123,7 @@
                         </div>
                     </div>
                 <div class="mb-3"></div>
-                    <a href="../pages/editar-colaboradores.php?idcol=<?= $colaborador['idcol'] ?>" class="btn btn-success float-end">Editar</a>
+                    <a href="<?= $caminho; ?>../pages/colaboradores/editar-colaboradores.php?idcol=<?= $colaborador['idcol'] ?>" class="btn btn-success float-end">Editar</a>
                 </div>
                 <?php 
                         } else {
