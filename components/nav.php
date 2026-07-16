@@ -45,9 +45,9 @@
                                     <a class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" href="">Equipamentos</a>
                                     <ul class="dropdown-menu dropdown-menu-dark">
                                         <li><a href="#" class="dropdown-item">Computadores Completos</a></li>
-                                        <li><a href="<?= $caminho . '../pages/gabinetes' ?>" class="dropdown-item">Computadores (Gabinetes)</a></li>
-                                        <li><a href="<?= $caminho . '../pages/monitores' ?>" class="dropdown-item">Monitores</a></li>
-                                        <li><a href="#" class="dropdown-item">Mouses</a></li>
+                                        <li><a href="<?= $caminho . '../pages/gabinetes'; ?>" class="dropdown-item">Computadores (Gabinetes)</a></li>
+                                        <li><a href="<?= $caminho . '../pages/monitores'; ?>" class="dropdown-item">Monitores</a></li>
+                                        <li><a href="<?= $caminho . '../pages/mouses'; ?>" class="dropdown-item">Mouses</a></li>
                                         <li><a href="#" class="dropdown-item">Notebooks</a></li>
                                         <li><a href="#" class="dropdown-item">Tablets</a></li>
                                         <li><a href="#" class="dropdown-item">Teclados</a></li>
