@@ -1,4 +1,3 @@
-
 <?php 
     if (!isset($_SESSION)) {
         session_start();
@@ -9,7 +8,7 @@
        exit;
     }
     
-    $title = "MOUSES";
+    $title = "TECLADOS";
     $csspeculiar = "";
     $caminho = "../";
     require_once ("../../components/header.php");
@@ -22,66 +21,66 @@
             <div class="card">
                 <div class="card-header">
                     <h4>Adicionar Novo
-                        <a href="../../pages/mouses" class="btn btn-light float-end">Voltar</a>
+                        <a href="../../pages/teclados" class="btn btn-light float-end">Voltar</a>
                     </h4>
                 </div>
                 <div class="card-body">
                     <?php 
-                        if (isset($_GET['idmou'])) {
-                            $idmou = mysqli_real_escape_string($conexao, $_GET['idmou']);
-                            $sql = "SELECT * FROM mouses WHERE idmou='$idmou'";
+                        if (isset($_GET['idtec'])) {
+                            $idtec = mysqli_real_escape_string($conexao, $_GET['idtec']);
+                            $sql = "SELECT * FROM teclados WHERE idtec='$idtec'";
                             $query = mysqli_query($conexao, $sql);
                             
                             if (mysqli_num_rows($query) > 0) {
-                                $mouse = mysqli_fetch_array($query);
+                                $teclado = mysqli_fetch_array($query);
                     ?>
-                    <form action="../../controllers/acoes-mouses.php" method="POST">
-                        <input type="hidden" name="idmou" value="<?= ($mouse['idmou']); ?>">
+                    <form action="<?= $caminho; ?>../controllers/acoes-teclados.php" method="POST">
+                        <input type="hidden" name="idtec" value="<?= ($teclado['idtec']); ?>">
                         <div class="input-group mb-3">
                             <span class="input-group-text">Descrição</span>
-                            <input type="text" name="descricaomou" aria-label="Descricao" class="form-control text-uppercase" required
-                            value="<?= ($mouse['descricaomou']); ?>">
+                            <input type="text" name="descricaotec" aria-label="Descricao" class="form-control text-uppercase" required
+                            value="<?= ($teclado['descricaotec']); ?>">
                         </div>
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="input-group mb-3">
                                     <span class="input-group-text">Conexão</span>
-                                    <select class="form-select bg-dark text-white" name="conexaomou" aria-label="Conexão" text-uppercase required>
-                                        <option <?= ($mouse['conexaomou'] == "") ? 'selected' : '' ?>></option>
-                                        <option <?= ($mouse['conexaomou'] == "Com cabo") ? 'selected' : '' ?>>Com cabo</option>
-                                        <option <?= ($mouse['conexaomou'] == "Sem cabo") ? 'selected' : '' ?>>Sem cabo</option>
+                                    <select class="form-select bg-dark text-white" name="conexaotec" aria-label="Conexão" text-uppercase required>
+                                        <option <?= ($teclado['conexaotec'] == "") ? 'selected' : '' ?>></option>
+                                        <option <?= ($teclado['conexaotec'] == "Com cabo") ? 'selected' : '' ?>>Com cabo</option>
+                                        <option <?= ($teclado['conexaotec'] == "Sem cabo") ? 'selected' : '' ?>>Sem cabo</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="input-group mb-3">
                                     <span class="input-group-text">Série</span>
-                                    <input type="text" name="seriemou" aria-label="Serie" class="form-control text-uppercase" required
-                                    value="<?= ($mouse['seriemou']); ?>">
+                                    <input type="text" name="serietec" aria-label="Serie" class="form-control text-uppercase" required
+                                    value="<?= ($teclado['serietec']); ?>">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="input-group mb-3">
                                     <span class="input-group-text">Data Cadastro</span>
-                                    <input type="date" name="datcadastromou" aria-label="Data Cadastro" class="form-control" value="<?= ($mouse['datcadastromou']); ?>" 
+                                    <input type="date" name="datcadastrotec" aria-label="Data Cadastro" class="form-control" value="<?= ($teclado['datcadastrotec']); ?>" 
                                     readonly>
                                 </div>
                             </div>
                         </div>
                         <div class="input-group mb-3">
                             <span class="input-group-text">Observação</span>
-                            <input type="text" name="observacaomou" aria-label="Observacao" class="form-control text-uppercase" 
-                            value="<?= ($mouse['observacaomou']); ?>">
+                            <input type="text" name="observacaotec" aria-label="Observacao" class="form-control text-uppercase" 
+                            value="<?= ($teclado['observacaotec']); ?>">
                         </div>                        
                         <div class="mb-3">
-                            <button type="submit" name="editar_mouse" class="btn btn-success float-end">
+                            <button type="submit" name="editar_teclado" class="btn btn-success float-end">
                                 Salvar
                             </button>
                         </div>
                     </form>
                     <?php 
                             } else {
-                                echo "<h5>MOUSE NÃO ENCONTRADO!</h5>";
+                                echo "<h5>teclado NÃO ENCONTRADO!</h5>";
                             }
                         }
                     ?>

@@ -7,11 +7,12 @@
     if (isset($_POST['criar_mouse'])) {
         $descricaomou = mysqli_real_escape_string($conexao, trim($_POST['descricaomou']));
         $conexaomou = mysqli_real_escape_string($conexao, trim($_POST['conexaomou']));
+        $seriemou = mysqli_real_escape_string($conexao, trim($_POST['seriemou']));
         $observacaomou = mysqli_real_escape_string($conexao, trim($_POST['observacaomou']));     
         $datcadastromou = mysqli_real_escape_string($conexao, trim($_POST['datcadastromou']));
 
-        $sql = "INSERT INTO mouses (descricaomou, conexaomou, observacaomou, datcadastromou) VALUES ('$descricaomou', '$conexaomou', 
-        '$observacaomou', '$datcadastromou')";
+        $sql = "INSERT INTO mouses (descricaomou, conexaomou, seriemou, observacaomou, datcadastromou) VALUES ('$descricaomou', '$conexaomou', 
+        '$seriemou', '$observacaomou', '$datcadastromou')";
 
         mysqli_query($conexao, $sql);
 
@@ -34,11 +35,12 @@
 
         $descricaomou = mysqli_real_escape_string($conexao, trim($_POST['descricaomou']));
         $conexaomou = mysqli_real_escape_string($conexao, trim($_POST['conexaomou']));
+        $seriemou = mysqli_real_escape_string($conexao, trim($_POST['seriemou']));
         $observacaomou = mysqli_real_escape_string($conexao, trim($_POST['observacaomou']));     
         $datcadastromou = mysqli_real_escape_string($conexao, trim($_POST['datcadastromou']));
 
-        $sql = "UPDATE mouses SET descricaomou = '$descricaomou', conexaomou = '$conexaomou', observacaomou = '$observacaomou', datcadastromou = '$datcadastromou'
-        WHERE idmou = $idmou";
+        $sql = "UPDATE mouses SET descricaomou = '$descricaomou', conexaomou = '$conexaomou', seriemou = '$seriemou', 
+        observacaomou = '$observacaomou', datcadastromou = '$datcadastromou' WHERE idmou = $idmou";
          
         mysqli_query($conexao, $sql);
 
